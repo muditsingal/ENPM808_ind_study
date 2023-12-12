@@ -4,7 +4,7 @@
 
 * Relatively new Nvidia Drivers, 515* should work
 * Decently powerful GPU. Nvidia 2080ti preferred.
-* Nvidia CUDA installed on your local system: )[Download Nvidia CUDA](https://developer.nvidia.com/cuda-11-8-0-download-archive)
+* Nvidia CUDA installed on your local system: [Download Nvidia CUDA](https://developer.nvidia.com/cuda-11-8-0-download-archive)
 * Nvidia container toolkit: [Install Guide for Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
 ## Setting up carla sim with docker
@@ -116,7 +116,7 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
 sudo apt-get install -y nvidia-container-toolkit
 ```
 
-*Configure docker for nvidia container toolkit*
+**Configure docker for nvidia container toolkit**
 
 ```
 sudo nvidia-ctk runtime configure --runtime=docker
@@ -135,13 +135,13 @@ sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 docker run --rm --gpus all --net=host -it --privileged --pid=host --runtime=nvidia --env="DISPLAY" --env="LOCAL_USER_ID=1000" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --device=/dev/video0 --device=/dev/video1 --name="carla_ct" muditsingal98/carla_ros2:v2.0 bash
 ```
 
-*Inside the container*
+**Inside the container**
 ```
 cd /opt/carla-simulator
 ./CarlaUE4.sh -preferNvidia -quality-level=Medium
 ```
 
-*Open another terminal to the container and start ros2 bridge*
+**Open another terminal to the container and start ros2 bridge**
 ```
 docker exec -it carla_ct bash
 source /opt/ros/foxy/setup.bash
