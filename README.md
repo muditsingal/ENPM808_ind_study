@@ -88,6 +88,8 @@ Verify download by running: `nvidia-smi`.
 
 ## Setting up nvcc on your system:
 
+Install nvcc using: `sudo apt install nvidia-cuda-toolkit`
+
 Add the below 2 lines in .bashrc file in home directory (since I installed cuda 11.7, X=11, Y=7):
 ```
 export PATH="/usr/local/cuda-X.Y/bin:$PATH"
